@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import ReactMarkdown from "react-markdown";
 import {
   Box,
   Button,
@@ -378,7 +379,7 @@ const BlogManager = () => {
               />
               <TextField
                 fullWidth
-                label="Content"
+                label="Content (Markdown supported)"
                 name="content"
                 value={formData.content}
                 onChange={handleChange}
@@ -386,7 +387,16 @@ const BlogManager = () => {
                 required
                 multiline
                 rows={6}
+                helperText="You can use Markdown for formatting (headers, lists, bold, etc.)"
               />
+              <Box sx={{ mt: 2, mb: 2 }}>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>
+                  Live Preview:
+                </Typography>
+                <Box sx={{ p: 2, border: '1px solid #ccc', borderRadius: 2, background: '#fafafa', minHeight: 100 }}>
+                  <ReactMarkdown>{formData.content}</ReactMarkdown>
+                </Box>
+              </Box>
               <TextField
                 fullWidth
                 label="Image URL"
