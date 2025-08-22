@@ -69,7 +69,7 @@ const Home = () => {
         return () => clearTimeout(timeout);
       }
     }
-  }, [isPageLoaded, currentIndex, wordIndex, words]);
+  }, [isPageLoaded, currentIndex, wordIndex]);
 
   return (
     <Container
