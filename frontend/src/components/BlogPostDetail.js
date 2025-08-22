@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
 import { useParams, Link as RouterLink } from "react-router-dom";
 import { api } from "../services/api";
 import {
@@ -203,8 +204,7 @@ const BlogPostDetail = () => {
           }}
         />
       )}
-      <Typography
-        variant="body1"
+      <Box
         sx={{
           color: "#e0e0e0",
           fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
@@ -214,8 +214,8 @@ const BlogPostDetail = () => {
           wordBreak: "break-word",
         }}
       >
-        {post.content}
-      </Typography>
+        <ReactMarkdown>{post.content}</ReactMarkdown>
+      </Box>
       <Typography
         variant="h4"
         sx={{ color: "#fff", fontWeight: 700, mt: 6, mb: 2 }}
