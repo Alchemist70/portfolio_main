@@ -393,7 +393,7 @@ const BlogManager = () => {
                 <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>
                   Live Preview:
                 </Typography>
-                <Box sx={{ p: 2, border: '1px solid #ccc', borderRadius: 2, background: '#fafafa', minHeight: 100 }}>
+                <Box sx={{ p: 2, border: '1px solid #ccc', borderRadius: 2, background: '#fafafa', minHeight: 100, color: '#222' }}>
                   <ReactMarkdown>{formData.content}</ReactMarkdown>
                 </Box>
               </Box>
