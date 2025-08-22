@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import {
   Box,
   Button,
@@ -394,7 +395,7 @@ const BlogManager = () => {
                   Live Preview:
                 </Typography>
                 <Box sx={{ p: 2, border: '1px solid #ccc', borderRadius: 2, background: '#fafafa', minHeight: 100, color: '#222' }}>
-                  <ReactMarkdown>{formData.content}</ReactMarkdown>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{formData.content}</ReactMarkdown>
                 </Box>
               </Box>
               <TextField

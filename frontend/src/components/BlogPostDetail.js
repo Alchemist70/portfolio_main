@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { useParams, Link as RouterLink } from "react-router-dom";
 import { api } from "../services/api";
 import {
@@ -214,7 +215,7 @@ const BlogPostDetail = () => {
           wordBreak: "break-word",
         }}
       >
-        <ReactMarkdown>{post.content}</ReactMarkdown>
+  <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
       </Box>
       <Typography
         variant="h4"
