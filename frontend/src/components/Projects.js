@@ -214,6 +214,27 @@ const Projects = ({ featured = false }) => {
                     },
                   },
                 }}>
+                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1 }}>
+                    <Box sx={{ flexGrow: 1 }} />
+                    {project.status && (
+                      <Chip
+                        label={project.status}
+                        size="small"
+                        sx={{
+                          fontWeight: 600,
+                          background: project.status === 'COMPLETED'
+                            ? '#43a047'
+                            : '#1976d2',
+                          color: 'white',
+                          letterSpacing: 1,
+                          textTransform: 'uppercase',
+                          fontSize: '0.85rem',
+                          boxShadow: '0 2px 8px 0 rgba(25, 118, 210, 0.10)',
+                          mt: 0.5,
+                        }}
+                      />
+                    )}
+                  </Box>
                   <Typography
                     gutterBottom
                     variant="h5"
