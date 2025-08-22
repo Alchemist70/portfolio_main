@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
 import {
   Box,
   Typography,
@@ -125,12 +126,9 @@ const About = () => {
               <Typography variant="h4" sx={{ fontWeight: 800, mb: 2 }}>
                 About Me
               </Typography>
-              <Typography
-                variant="body1"
-                sx={{ mb: 3, fontSize: "1.15rem", lineHeight: 1.7 }}
-              >
-                {about.bio}
-              </Typography>
+              <Box sx={{ mb: 3, fontSize: "1.15rem", lineHeight: 1.7, color: '#fff' }}>
+                <ReactMarkdown>{about.bio}</ReactMarkdown>
+              </Box>
 
               {/* Professional Values Section */}
               {values.length > 0 && (
