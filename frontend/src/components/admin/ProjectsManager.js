@@ -40,13 +40,14 @@ const ProjectsManager = () => {
   const { token } = useAuth();
 
   const [formData, setFormData] = useState({
-    title: "",
-    description: "",
-    imageUrl: "",
-    githubUrl: "",
-    demoUrl: "",
-    technologies: "",
-    featured: false,
+  title: "",
+  description: "",
+  imageUrl: "",
+  githubUrl: "",
+  demoUrl: "",
+  technologies: "",
+  featured: false,
+  status: "COMPLETED",
   });
 
   const fetchProjects = useCallback(async () => {
@@ -98,6 +99,7 @@ const ProjectsManager = () => {
           ? project.technologies.join(", ")
           : "",
         featured: project.featured || false,
+        status: project.status || "COMPLETED",
       });
     } else {
       setEditingProject(null);
@@ -109,6 +111,7 @@ const ProjectsManager = () => {
         demoUrl: "",
         technologies: "",
         featured: false,
+        status: "COMPLETED",
       });
     }
     setOpenDialog(true);
@@ -145,6 +148,7 @@ const ProjectsManager = () => {
           .map((tech) => tech.trim())
           .filter(Boolean),
         featured: formData.featured,
+        status: formData.status,
       };
       if (editingProject) {
         await api.patch(`/projects/${editingProject._id}`, projectData, {
@@ -213,11 +217,25 @@ const ProjectsManager = () => {
                 <Typography variant="body2" color="text.secondary" paragraph>
                   {project.description}
                 </Typography>
-                <Box display="flex" flexWrap="wrap" gap={1}>
+                <Box display="flex" flexWrap="wrap" gap={1} mb={1}>
                   {project.technologies.map((tech, index) => (
                     <Chip key={index} label={tech} size="small" />
                   ))}
                 </Box>
+                {project.status && (
+                  <Chip
+                    label={project.status}
+                    size="small"
+                    sx={{
+                      fontWeight: 600,
+                      background: project.status === 'COMPLETED'
+                        ? '#2e7d32'
+                        : '#ed6c02',
+                      color: 'white',
+                      mb: 1,
+                    }}
+                  />
+                )}
               </CardContent>
               <CardActions>
                 <IconButton
@@ -338,6 +356,22 @@ const ProjectsManager = () => {
                   onChange={handleInputChange}
                   required
                 />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  select
+                  fullWidth
+                  label="Status"
+                  name="status"
+                  value={formData.status}
+                  onChange={handleInputChange}
+                  SelectProps={{ native: true }}
+                  required
+                  sx={{ mt: 1 }}
+                >
+                  <option value="COMPLETED">COMPLETED</option>
+                  <option value="IN PROGRESS">IN PROGRESS</option>
+                </TextField>
               </Grid>
             </Grid>
           </Box>

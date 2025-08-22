@@ -30,6 +30,11 @@ const projectSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  status: {
+    type: String,
+    enum: ['COMPLETED', 'IN PROGRESS'],
+    default: 'COMPLETED'
+  },
   createdAt: {
     type: Date,
     default: Date.now

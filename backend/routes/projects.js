@@ -58,12 +58,13 @@ router.get('/:id', apiLimiter, async (req, res) => {
 router.post('/', [auth, apiLimiter, projectValidation], async (req, res) => {
   const project = new Project({
     title: req.body.title,
-    description: req.body.description,
-    imageUrl: req.body.imageUrl,
-    githubUrl: req.body.githubUrl,
-    demoUrl: req.body.demoUrl,
-    technologies: req.body.technologies,
-    featured: req.body.featured
+  description: req.body.description,
+  imageUrl: req.body.imageUrl,
+  githubUrl: req.body.githubUrl,
+  demoUrl: req.body.demoUrl,
+  technologies: req.body.technologies,
+  featured: req.body.featured,
+  status: req.body.status || 'COMPLETED'
   });
 
   try {

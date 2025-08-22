@@ -260,10 +260,14 @@ const Projects = ({ featured = false }) => {
                       sx={{
                         mb: 2,
                         fontWeight: 600,
-                        background: project.status === 'Completed' 
-                          ? theme.palette.success.main 
-                          : theme.palette.warning.main,
+                        background: project.status === 'COMPLETED'
+                          ? '#43a047' // green for COMPLETED
+                          : '#1976d2', // blue for IN PROGRESS
                         color: 'white',
+                        letterSpacing: 1,
+                        textTransform: 'uppercase',
+                        fontSize: '0.85rem',
+                        boxShadow: '0 2px 8px 0 rgba(25, 118, 210, 0.10)',
                       }}
                     />
                   )}
