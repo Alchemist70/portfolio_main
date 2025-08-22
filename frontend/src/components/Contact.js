@@ -16,9 +16,9 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { api } from '../services/api';
-import AnimatedContainer, { StaggeredContainer, StaggeredItem } from './AnimatedContainer';
+import { StaggeredContainer, StaggeredItem } from './AnimatedContainer';
 
-const MotionBox = motion(Box);
+// ...existing code...
 
 const Contact = () => {
   const theme = useTheme();

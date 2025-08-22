@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import {
   Box,
   Typography,
-  Paper,
   Avatar,
   Container,
   Button,
@@ -15,13 +14,14 @@ import EmailIcon from "@mui/icons-material/Email";
 import Contact from "../components/Contact";
 import profilePicture from "./profile_picture.jpg";
 
+const words = ["Web Development", "AI/ML", "Programming"];
+
 const Home = () => {
   const [photoUrl, setPhotoUrl] = useState(profilePicture);
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   const [typedText, setTypedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [wordIndex, setWordIndex] = useState(0);
-  const words = ["Web Development", "AI/ML", "Programming"];
 
   useEffect(() => {
     const storedPhoto = localStorage.getItem("adminPhoto");

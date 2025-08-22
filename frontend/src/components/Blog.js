@@ -18,7 +18,6 @@ import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { api } from "../services/api";
 import { useNavigate } from "react-router-dom";
 import AnimatedContainer, { StaggeredContainer, StaggeredItem } from "./AnimatedContainer";
